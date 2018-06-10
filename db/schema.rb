@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180423073053) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "likes_count", comment: "count cache"
+    t.integer "likes_count", comment: "count cache"
   end
 
   create_table "users", force: :cascade do |t|
