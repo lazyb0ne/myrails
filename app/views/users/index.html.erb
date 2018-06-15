@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1><%= current_user.email if current_user.present? %></h1>
 
 <table>
   <thead>
@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,3 +25,9 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+
+<%= link_to 'Sign Up', new_user_registration_path %>
+
+<%= link_to 'Sign In', user_session_path, method: :post %>

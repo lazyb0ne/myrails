@@ -8,6 +8,7 @@ class Devise::SessionsController < DeviseController
 
   # GET /resource/sign_in
   def new
+    byebug
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     yield resource if block_given?
@@ -16,6 +17,7 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
+    byebug
     self.resource = warden.authenticate!(auth_options)
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
@@ -25,6 +27,7 @@ class Devise::SessionsController < DeviseController
 
   # DELETE /resource/sign_out
   def destroy
+    byebug
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     set_flash_message! :notice, :signed_out if signed_out
     yield if block_given?
@@ -38,6 +41,7 @@ class Devise::SessionsController < DeviseController
   end
 
   def serialize_options(resource)
+    byebug
     methods = resource_class.authentication_keys.dup
     methods = methods.keys if methods.is_a?(Hash)
     methods << :password if resource.respond_to?(:password)
@@ -59,6 +63,7 @@ class Devise::SessionsController < DeviseController
   # If there is no signed in user, it will set the flash message and redirect
   # to the after_sign_out path.
   def verify_signed_out_user
+    byebug
     if all_signed_out?
       set_flash_message! :notice, :already_signed_out
 
@@ -67,12 +72,14 @@ class Devise::SessionsController < DeviseController
   end
 
   def all_signed_out?
+    byebug
     users = Devise.mappings.keys.map { |s| warden.user(scope: s, run_callbacks: false) }
 
     users.all?(&:blank?)
   end
 
   def respond_to_on_destroy
+    byebug
     # We actually need to hardcode this as Rails default responder doesn't
     # support returning empty response on GET request
     respond_to do |format|

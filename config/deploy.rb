@@ -8,12 +8,16 @@ set :repo_url, "git@github.com:lazyb0ne/myrails.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/www/myrails"
+set :deploy_to, "/home/www/rails/myrails"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
 # set :scm, :git
+
+# set :default_env, {
+#     :PATH => '/usr/share/rvm/bin/rvm'
+# }
 
 set :branch, :master
 set :user, 'www'
