@@ -61,7 +61,7 @@ set :keep_releases, 5
 # end
 
 # If the environment differs from the stage name
-set :rails_env, 'staging'
+set :rails_env, 'production'
 
 # Defaults to :db role
 set :migration_role, :db
