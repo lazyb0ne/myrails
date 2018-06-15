@@ -8,6 +8,7 @@ require 'capistrano/rvm'
 require 'capistrano/bundler' # Rails needs Bundler, right?
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/puma'
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -21,6 +22,7 @@ require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rails/console'
+
 
 # Include tasks from other gems included in your Gemfile
 #

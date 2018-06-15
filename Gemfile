@@ -66,6 +66,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails-console'
   gem 'capistrano-rails-tail-log'
+  gem 'capistrano3-puma', '1.2.1'
 
 end
 
